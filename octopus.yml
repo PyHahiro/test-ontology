@@ -1,0 +1,12 @@
+engine: jena
+prefixes:
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  swrlb: http://www.w3.org/2003/11/swrlb#
+  ex: http://anabasis-assets.com/ontologies/my-awesome-project/example#
+  data: http://anabasis-assets.com/ontologies/my-awesome-project/data#
+ontologies:
+  - ./ontologies/example.owl
+  - ./ontologies/example.klmr
+datasources:
+  - ./data/example.ttl

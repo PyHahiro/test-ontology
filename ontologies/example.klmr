@@ -1,0 +1,74 @@
+@base <http://anabasis-assets.com/ontologies/my-awesome-project/example#>
+
+/**
+* An adult is a Human who is or is older than 18 years
+*/
+rule adult
+{
+  "Adulte"@fr
+  "Adult"@en
+  if
+    ?x a ex:Human and
+    ?x ex:age ?age and
+    ?age >= 18
+  then
+    ?x a ex:Adult
+}
+
+/**
+* A child is a Human who is not yet an Adult (and for whom his age is known)
+*/
+//rule child
+//{
+//  if
+//    ?x a ex:Human and
+//    ?x ex:age ?_ and
+//    naf
+//    {
+//      ?x a ex:Adult
+//    }
+//  then
+//    ?x a ex:Child
+//}
+
+/**
+* The brother of a parent is an uncle
+*/
+rule uncleOf
+{
+  "Oncle de"@fr
+  "Uncle of"@en
+  if
+    ?x ex:brotherOf ?y and
+    ?y ex:parentOf ?z
+  then
+    ?x ex:uncleOf ?z
+}
+
+/**
+* The sister of a parent is an aunt
+*/
+rule auntOf {
+  "Tante de"@fr
+  "Aunt of"@en
+  if
+    ?x ex:sisterOf ?y and
+    ?y ex:parentOf ?z
+  then
+    ?x ex:auntOf ?z
+}
+
+/**
+* The displayName is the concatenation of the firstname with the lastname separated by a space
+*/
+rule displayName {
+  "display name"@fr
+  "nom affiché"@en
+  if
+    ?x a ex:Human and
+    ?x ex:firstname ?firstname and
+    ?x ex:lastname ?lastname and
+    swrlb:stringConcat(?displayName, ?firstname, " ", ?lastname)
+  then
+    ?x ex:displayName ?displayName
+}

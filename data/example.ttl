@@ -1,0 +1,19 @@
+@base <http://anabasis-assets.com/ontologies/my-awesome-project/data> .
+@prefix data: <http://anabasis-assets.com/ontologies/my-awesome-project/data#> .
+
+@prefix ex: <http://anabasis-assets.com/ontologies/my-awesome-project/example#> .
+
+
+data:alice 
+  ex:motherOf data:emma ;
+  ex:firstname "Alice" ;
+  ex:lastname "Dubois" .
+
+data:emma ex:age 13 ;
+  ex:sisterOf data:carl .
+
+data:bob 
+  ex:brotherOf data:alice ;
+  ex:age 42 .
+
+

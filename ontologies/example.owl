@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns="http://anabasis-assets.com/ontologies/my-awesome-project/example#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xml:base="http://anabasis-assets.com/ontologies/my-awesome-project/example" > 
+  <rdf:Description rdf:about="#parentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Human"/>
+    <rdfs:domain rdf:resource="#Human"/>
+    <owl:inverseOf rdf:resource="#hasForParent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Human">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasForBrother">
+    <owl:inverseOf rdf:resource="#brotherOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasForParent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#parentOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Woman">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:resource="#Human"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Child">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Human"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#auntOf">
+    <rdfs:range rdf:resource="#Human"/>
+    <owl:inverseOf rdf:resource="#hasForAunt"/>
+    <rdfs:domain rdf:resource="#Woman"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#sisterOf">
+    <owl:inverseOf rdf:resource="#hasForSister"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Human"/>
+    <rdfs:subPropertyOf rdf:resource="#siblingOf"/>
+    <rdfs:domain rdf:resource="#Woman"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#displayName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Human"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasForMother">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <owl:inverseOf rdf:resource="#motherOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Adult">
+    <rdfs:subClassOf rdf:resource="#Human"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#lastname">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Human"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#firstname">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Human"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasForAunt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#auntOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#age">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Human"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasForUncle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#uncleOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#motherOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="#parentOf"/>
+    <rdfs:range rdf:resource="#Human"/>
+    <rdfs:domain rdf:resource="#Woman"/>
+    <owl:inverseOf rdf:resource="#hasForMother"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#uncleOf">
+    <rdfs:domain rdf:resource="#Man"/>
+    <owl:inverseOf rdf:resource="#hasForUncle"/>
+    <rdfs:range rdf:resource="#Human"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasForSister">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#sisterOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#fatherOf">
+    <rdfs:subPropertyOf rdf:resource="#parentOf"/>
+    <rdfs:range rdf:resource="#Human"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <owl:inverseOf rdf:resource="#hasForFather"/>
+    <rdfs:domain rdf:resource="#Man"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#hasForFather">
+    <owl:inverseOf rdf:resource="#fatherOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <owl:imports rdf:resource=""/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#siblingOf">
+    <rdfs:range rdf:resource="#Human"/>
+    <rdfs:domain rdf:resource="#Human"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#brotherOf">
+    <rdfs:range rdf:resource="#Human"/>
+    <owl:inverseOf rdf:resource="#hasForBrother"/>
+    <rdfs:domain rdf:resource="#Man"/>
+    <rdfs:subPropertyOf rdf:resource="#siblingOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Man">
+    <rdfs:subClassOf rdf:resource="#Human"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->
