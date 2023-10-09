@@ -72,3 +72,15 @@ rule displayName {
   then
     ?x ex:displayName ?displayName
 }
+
+mongo extractor myquery(?one, ?two) {
+    @mgq:mongoConnect("my-connection-string")
+    @mgq:find("place")
+    @mgq:filter("filterfield1", "what")
+    @mgq:filter("filterfield2", "when")
+    @mgq:sort("sorting", "ascending")
+    @mgq:projection("projecting", ?one, xsd:string)
+    @mgq:projection("field", ?two, xsd:int)
+    @mgq:limit(13)
+    @mgq:skip(42)
+}
