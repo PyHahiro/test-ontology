@@ -1,5 +1,9 @@
 @base <http://anabasis-assets.com/ontologies/my-awesome-project/example#>
 
+class Humain
+
+class Homme subclassOf Humain
+
 /**
 * An adult is a Human who is or is older than 18 years
 */
